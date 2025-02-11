@@ -5,6 +5,9 @@ const connectDB = require("./src/config/db");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.get('/', (req, res) => {
+    res.send('Hello, World!'); // Change this to whatever you want
+  });
 app.use(require("./src/middleware/errorHandler"));
 connectDB();
 app.use("/api/contacts", require("./src/routes/contactRoutes"));
